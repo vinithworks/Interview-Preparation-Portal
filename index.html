@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interview Preparation Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- LOGIN PAGE -->
+
+    <section id="loginPage" class="auth-page">
+
+        <div class="overlay"></div>
+
+        <div class="glass-card auth-card">
+
+            <h1>Interview Preparation Portal</h1>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="loginUsername">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="loginPassword">
+            </div>
+
+            <button id="loginBtn" class="primary-btn">
+                Login
+            </button>
+
+            <div class="auth-links">
+                <a href="#" id="showSignup">
+                    Sign Up
+                </a>
+
+                <a href="#" id="showForgotPassword">
+                    Forgot Password
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SIGNUP PAGE -->
+
+    <section id="signupPage" class="auth-page hidden">
+
+        <div class="overlay"></div>
+
+        <div class="glass-card auth-card">
+
+            <h1>Create Account</h1>
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="signupName">
+            </div>
+
+            <div class="input-group">
+                <label>Profession</label>
+                <input type="text" id="signupProfession">
+            </div>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="signupUsername">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="signupPassword">
+            </div>
+
+            <button id="registerBtn" class="primary-btn">
+                Register
+            </button>
+
+            <button id="backToLogin" class="secondary-btn">
+                Back To Login
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- FORGOT PASSWORD -->
+
+    <section id="forgotPage" class="auth-page hidden">
+
+        <div class="overlay"></div>
+
+        <div class="glass-card auth-card">
+
+            <h1>Forgot Password</h1>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="forgotUsername">
+            </div>
+
+            <button id="recoverBtn" class="primary-btn">
+                Recover Password
+            </button>
+
+            <button id="forgotBackBtn" class="secondary-btn">
+                Back
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- DASHBOARD -->
+
+    <section id="dashboardPage" class="hidden">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>IPP</span>
+            </div>
+
+            <ul>
+
+                <li data-page="profileSection">
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+                </li>
+
+                <li data-page="passwordSection">
+                    <i class="fa-solid fa-key"></i>
+                    Change Password
+                </li>
+
+                <li data-page="preparationSection">
+                    <i class="fa-solid fa-book"></i>
+                    Interview Preparation
+                </li>
+
+                <li data-page="taskSection">
+                    <i class="fa-solid fa-list-check"></i>
+                    My Tasks
+                </li>
+
+                <li id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Sign Out
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <main class="content">
+
+            <!-- HOME -->
+
+            <section id="homeSection">
+
+                <div class="hero glass-card">
+
+                    <h1>
+                        Welcome to Interview Preparation Portal
+                    </h1>
+
+                    <p>
+                        Prepare smarter. Track every topic.
+                        Crack your interview with confidence.
+                    </p>
+
+                    <button id="getStartedBtn"
+                            class="primary-btn">
+                        Get Started
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- PROFILE -->
+
+            <section id="profileSection"
+                     class="hidden">
+
+                <div class="glass-card">
+
+                    <h2>Profile</h2>
+
+                    <p>
+                        Name :
+                        <span id="profileName"></span>
+                    </p>
+
+                    <p>
+                        Profession :
+                        <span id="profileProfession"></span>
+                    </p>
+
+                    <p>
+                        Username :
+                        <span id="profileUsername"></span>
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- CHANGE PASSWORD -->
+
+            <section id="passwordSection"
+                     class="hidden">
+
+                <div class="glass-card">
+
+                    <h2>Change Password</h2>
+
+                    <input type="password"
+                           id="oldPassword"
+                           placeholder="Old Password">
+
+                    <input type="password"
+                           id="newPassword"
+                           placeholder="New Password">
+
+                    <input type="password"
+                           id="confirmPassword"
+                           placeholder="Confirm Password">
+
+                    <button id="changePasswordBtn"
+                            class="primary-btn">
+                        Update Password
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- PREPARATION -->
+
+            <section id="preparationSection"
+                     class="hidden">
+
+                <div class="glass-card">
+
+                    <h2>Interview Preparation</h2>
+
+                    <input type="date"
+                           id="interviewDate">
+
+                    <input type="text"
+                           id="jobRole"
+                           placeholder="Job Role">
+
+                    <button id="addTopicBtn"
+                            class="primary-btn">
+                        + Add Topic
+                    </button>
+
+                    <div id="topicContainer">
+
+                    </div>
+
+                    <div class="progress-box">
+
+                        <h3>
+                            Progress Tracker
+                        </h3>
+
+                        <div class="progress">
+
+                            <div id="progressBar">
+
+                            </div>
+
+                        </div>
+
+                        <span id="progressText">
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div class="action-buttons">
+
+                        <button id="completedBtn"
+                                class="success-btn">
+                            Completed Preparation
+                        </button>
+
+                        <button id="notCompletedBtn"
+                                class="danger-btn">
+                            Not Completed Preparation
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- MY TASKS -->
+
+            <section id="taskSection"
+                     class="hidden">
+
+                <div class="glass-card">
+
+                    <h2>My Tasks</h2>
+
+                    <input type="text"
+                           id="searchTask"
+                           placeholder="Search Job Role">
+
+                    <select id="filterTask">
+
+                        <option value="all">
+                            All
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                        <option value="Not Completed">
+                            Not Completed
+                        </option>
+
+                    </select>
+
+                    <div id="taskContainer">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </section>
+
+    <!-- MODAL -->
+
+    <div id="messageModal"
+         class="modal hidden">
+
+        <div class="modal-content">
+
+            <h2 id="modalTitle">
+
+            </h2>
+
+            <p id="modalMessage">
+
+            </p>
+
+            <button id="closeModal"
+                    class="primary-btn">
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+<footer class="footer">
+    <p>
+        © 2026 Interview Preparation Portal |
+        Developed by Vinith Arunachalam |
+        All Rights Reserved
+    </p>
+</footer>
+
+</body>
+</html>
